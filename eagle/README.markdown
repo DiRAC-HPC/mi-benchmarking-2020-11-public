@@ -30,6 +30,9 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
     pushd examples/EAGLE_low_z/EAGLE_25
     ../../swift --eagle --cosmology --threads=<NUM_THREADS> -v 1 -n 2000 \
         -P Restarts:enable:0 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
@@ -41,6 +44,9 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
     pushd examples/EAGLE_low_z/EAGLE_25
     mpirun -np <NUM_MPI_PROCESSES> ../../swift_mpi --eagle --cosmology --threads=<THREADS_PER_NODE> -v 1 -n 2000 \
         -P Restarts:enable:0 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 

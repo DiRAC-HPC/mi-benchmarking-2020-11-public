@@ -29,6 +29,9 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
 
     pushd swiftsim/examples/PMillennium/PMillennium-1536
     ../../swift --pin --cosmology --self-gravity -v 1 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
         --threads=<NUM_THREADS> -n 10 -P Restarts:enable:0 p-mill-1536.yml
     popd
 
@@ -39,6 +42,9 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
 
     pushd swiftsim/examples/PMillennium/PMillennium-1536
     mpirun -np <NUM_MPI_PROCESSES> ../../swift_mpi --pin --cosmology --self-gravity -v 1 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
         --threads=<THREADS_PER_NODE> -n 10 -P Restarts:enable:0 p-mill-1536.yml
     popd
 
