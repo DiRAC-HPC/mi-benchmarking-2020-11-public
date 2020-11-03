@@ -36,6 +36,74 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
         eagle_25.yml
     popd
 
+# Weak scaling test
+Weak scaling can be tested by increasing the problem size with the number of threads as shown below:
+
+
+    # Scale 1
+    pushd examples/EAGLE_low_z/EAGLE_25
+    ../../swift --eagle --cosmology --threads=1 -v 1 -n 2000 \
+        -P Scheduler:max_top_level_cells:8 \
+        -P Gravity:mesh_side_length:32 \
+        -P Restarts:enable:0 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
+        eagle_25.yml
+    popd
+
+    # Scale 2
+    pushd examples/EAGLE_low_z/EAGLE_25
+    ../../swift --eagle --cosmology --threads=8 -v 1 -n 2000 \
+        -P Scheduler:max_top_level_cells:16 \
+        -P Gravity:mesh_side_length:64 \
+        -P InitialConditions:replicate:2 \
+        -P Restarts:enable:0 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
+        eagle_25.yml
+    popd
+
+    # Scale 3
+    pushd examples/EAGLE_low_z/EAGLE_25
+    ../../swift --eagle --cosmology --threads=27 -v 1 -n 2000 \
+        -P Scheduler:max_top_level_cells:24 \
+        -P Gravity:mesh_side_length:96 \
+        -P InitialConditions:replicate:3 \
+        -P Restarts:enable:0 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
+        eagle_25.yml
+    popd
+
+    # Scale 4
+    pushd examples/EAGLE_low_z/EAGLE_25
+    ../../swift --eagle --cosmology --threads=64 -v 1 -n 2000 \
+        -P Scheduler:max_top_level_cells:32 \
+        -P Gravity:mesh_side_length:128 \
+        -P InitialConditions:replicate:4 \
+        -P Restarts:enable:0 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
+        eagle_25.yml
+    popd
+
+    # Scale 5
+    pushd examples/EAGLE_low_z/EAGLE_25
+    ../../swift --eagle --cosmology --threads=125 -v 1 -n 2000 \
+        -P Scheduler:max_top_level_cells:40 \
+        -P Gravity:mesh_side_length:160 \
+        -P InitialConditions:replicate:5 \
+        -P Restarts:enable:0 \
+        -P Snapshots:scale_factor_first: 10000000000000.0 \
+        -P Snapshots:time_first:10000000000000.0 \
+        -P Snapshots:delta_time:10000000000000.0 \
+        eagle_25.yml
+    popd
+
 
 # Running Multi Node
 Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_NODE` (`-n` sets the number of timesteps to run for):
@@ -49,4 +117,5 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
         -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
+
 
