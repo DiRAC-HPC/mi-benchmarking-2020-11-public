@@ -23,7 +23,7 @@ See [here](../deps.markdown)
 
 
 # Running Single Node
-This should take about 3.5 hours on a single node with 128 threads.
+This should take less than 4 hours on a single node with 128 threads.
 Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number of timesteps to run for):
 
 
