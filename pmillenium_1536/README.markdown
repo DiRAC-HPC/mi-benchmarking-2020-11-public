@@ -8,7 +8,7 @@ See [here](../deps.markdown)
 
     git clone https://gitlab.cosma.dur.ac.uk/swift/swiftsim.git
     pushd swiftsim
-    git checkout 947ec89e8f9e1d8dbf0f870939bd361c327a470a
+    git checkout 5f3649f7f92266c41d381ee9c8a3009a08d8da8a
     ./autogen.sh
     ./configure --enable-ipo --with-parmetis --with-tbbmalloc # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
 
@@ -29,9 +29,6 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
 
     pushd swiftsim/examples/PMillennium/PMillennium-1536
     ../../swift --pin --cosmology --self-gravity -v 1 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         --threads=<NUM_THREADS> -n 10 -P Restarts:enable:0 p-mill-1536.yml
     popd
 
@@ -42,9 +39,6 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
 
     pushd swiftsim/examples/PMillennium/PMillennium-1536
     mpirun -np <NUM_MPI_PROCESSES> ../../swift_mpi --pin --cosmology --self-gravity -v 1 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         --threads=<THREADS_PER_NODE> -n 10 -P Restarts:enable:0 p-mill-1536.yml
     popd
 
