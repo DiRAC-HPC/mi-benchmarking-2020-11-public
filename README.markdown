@@ -28,7 +28,7 @@ on the raw FP performance but tests the memory bandwidth, numa effects and scala
  - [EAGLE](./eagle/README.markdown)
 
 
-# Notes on benchmark inputs
+# Notes on Benchmark Inputs
 
 Note that some of the tests above are large and require large input. The file sizes are:
 
@@ -39,6 +39,8 @@ Note that some of the tests above are large and require large input. The file si
 
 Side tables of size < 100 MB are also required for the EAGLE run.
 
-# Outputs
+# Outputs and Performance
 
 Please save files named `timesteps_<NUM_THREADS>.txt` as these contain information about performance.
+If you want to assess performance, you should take the second last column "Wall-clock time [ms]", discarding the 0th time step and summing up the rest of the entries.
+Lower values are better for this.
