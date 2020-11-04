@@ -10,9 +10,23 @@
  - The hydro code is largely bound by memory bandwidth.
 
 # Benchmarks
- - [EAGLE](./eagle/README.markdown)
+
+There are two separate benchmarks designed to test the performance of the different code sections.
+
+The first test is focused on the performance of the gravity code in large-scale runs. This exercises
+the math library, raw FP-performance at full-load when there is a lot of operations to perform for
+every particle in the system. This test comes in different sizes as the goal is to fill the memory
+of the nodes as much as possible. In decreasing size (factors of 8):
+
+ - [PMillenium 3072](./pmillenium_3072/README.markdown)
  - [PMillenium 1536](./pmillenium_1536/README.markdown)
  - [PMillenium 768](./pmillenium_768/README.markdown)
+
+The second test exercises mainly the hydrodynamics and additional physics modules. This is less demanding
+on the raw FP performance but tests the memory bandwidth, numa effects and scalability. 
+
+ - [EAGLE](./eagle/README.markdown)
+
 
 # Outputs
 Please save files named `timesteps_<NUM_THREADS>.txt` as these contain information about performance.
