@@ -8,13 +8,14 @@ See [here](../deps.markdown)
 
     git clone https://gitlab.cosma.dur.ac.uk/swift/swiftsim.git
     pushd swiftsim
-    git checkout 947ec89e8f9e1d8dbf0f870939bd361c327a470a
+    git checkout 5f3649f7f92266c41d381ee9c8a3009a08d8da8a
     ./autogen.sh
     # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
     ./configure --with-subgrid=EAGLE --with-hydro=sphenix --with-kernel=wendland-C2 --enable-ipo --with-parmetis --with-tbbmalloc
     make
 
-# Downloading data
+# Downloading Data
+Note that the input is 3.6GB in size.
 
 
     pushd examples/EAGLE_low_z/EAGLE_25
@@ -32,12 +33,12 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
     ../../swift --eagle --cosmology --threads=<NUM_THREADS> -v 1 -n 2000 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_lists.txt \
+        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
         eagle_25.yml
     popd
 
 
-# Strong scaling Multi Node
+# Strong Scaling Multi Node
 Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_NODE` (`-n` sets the number of timesteps to run for):
 
 
@@ -50,7 +51,7 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
     popd
 
 
-# Weak scaling test
+# Weak Scaling Test
 Weak scaling can be tested by increasing the problem size with the number of threads.
 We increase the number of threads cubically as the replicate parameter increases the problem size on all 3 axes.
 

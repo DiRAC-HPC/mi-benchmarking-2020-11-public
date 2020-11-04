@@ -14,10 +14,11 @@ See [here](../deps.markdown)
     ./configure --enable-ipo --with-parmetis --with-tbbmalloc
     make
 
-# Downloading data
+# Downloading Data
+Note that the input is 8.3GB in size.
 
 
-    pushd swiftsim/examples/PMillennium/PMillennium-768
+    pushd examples/PMillennium/PMillennium-768
     ./getIC.sh
     popd
 
@@ -26,7 +27,7 @@ See [here](../deps.markdown)
 Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number of timesteps to run for):
 
 
-    pushd swiftsim/examples/PMillennium/PMillennium-768
+    pushd examples/PMillennium/PMillennium-768
     ../../swift --pin --cosmology --self-gravity -v 1 --threads=<NUM_THREADS> -n 10 \
         -P Restarts:enable:0 \
         p-mill-768.yml
@@ -37,7 +38,7 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
 Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_NODE` (`-n` sets the number of timesteps to run for):
 
 
-    pushd swiftsim/examples/PMillennium/PMillennium-768
+    pushd examples/PMillennium/PMillennium-768
     mpirun -np <NUM_MPI_PROCESSES> ../../swift_mpi --pin --cosmology --self-gravity -v 1 --threads=<THREADS_PER_NODE> -n 10 \
         -P Restarts:enable:0 \
         p-mill-768.yml
