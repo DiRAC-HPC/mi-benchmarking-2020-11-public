@@ -44,9 +44,6 @@ Weak scaling can be tested by increasing the problem size with the number of thr
         -P Scheduler:max_top_level_cells:8 \
         -P Gravity:mesh_side_length:32 \
         -P Restarts:enable:0 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
@@ -57,9 +54,6 @@ Weak scaling can be tested by increasing the problem size with the number of thr
         -P Gravity:mesh_side_length:64 \
         -P InitialConditions:replicate:2 \
         -P Restarts:enable:0 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
@@ -70,9 +64,6 @@ Weak scaling can be tested by increasing the problem size with the number of thr
         -P Gravity:mesh_side_length:96 \
         -P InitialConditions:replicate:3 \
         -P Restarts:enable:0 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
@@ -83,9 +74,6 @@ Weak scaling can be tested by increasing the problem size with the number of thr
         -P Gravity:mesh_side_length:128 \
         -P InitialConditions:replicate:4 \
         -P Restarts:enable:0 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
@@ -96,9 +84,6 @@ Weak scaling can be tested by increasing the problem size with the number of thr
         -P Gravity:mesh_side_length:160 \
         -P InitialConditions:replicate:5 \
         -P Restarts:enable:0 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
@@ -110,9 +95,6 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
     pushd examples/EAGLE_low_z/EAGLE_25
     mpirun -np <NUM_MPI_PROCESSES> ../../swift_mpi --eagle --cosmology --threads=<THREADS_PER_NODE> -v 1 -n 2000 \
         -P Restarts:enable:0 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
