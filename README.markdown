@@ -42,5 +42,5 @@ Side tables of size < 100 MB are also required for the EAGLE run.
 # Outputs and Performance
 
 Please save files named `timesteps_<NUM_THREADS>.txt` as these contain information about performance.
-If you want to assess performance, you should take the second last column "Wall-clock time [ms]", discarding the 0th time step and summing up the rest of the entries.
+If you want to assess performance, you should take the second last column "Wall-clock time [ms]" of this file, discard the 0th time step and sum up the rest of the entries.
 Lower values are better for this.
