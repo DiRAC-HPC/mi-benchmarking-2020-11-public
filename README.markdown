@@ -28,5 +28,13 @@ on the raw FP performance but tests the memory bandwidth, numa effects and scala
  - [EAGLE](./eagle/README.markdown)
 
 
+# Initial conditions (ICs)
+The ICs sizes are:
+
+ - PMill-384   - 1.1 GB
+ - PMill-768   - 8.3 GB
+ - PMill-1536  - 163 GB
+ - PMill-3072  - 1.3 TB
+
 # Outputs
 Please save files named `timesteps_<NUM_THREADS>.txt` as these contain information about performance.

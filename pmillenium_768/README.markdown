@@ -10,9 +10,9 @@ See [here](../deps.markdown)
     pushd swiftsim
     git checkout 5f3649f7f92266c41d381ee9c8a3009a08d8da8a
     ./autogen.sh
-    ./configure --enable-ipo --with-parmetis --with-tbbmalloc  # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
-
-    make -j 32 
+    # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
+    ./configure --enable-ipo --with-parmetis --with-tbbmalloc
+    make
 
 # Downloading data
 

@@ -10,16 +10,17 @@ See [here](../deps.markdown)
     pushd swiftsim
     git checkout 947ec89e8f9e1d8dbf0f870939bd361c327a470a
     ./autogen.sh
-    ./configure --with-subgrid=EAGLE --with-hydro=sphenix --with-kernel=wendland-C2 --enable-ipo --with-parmetis --with-tbbmalloc  # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
-    make -j 32 
+    # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
+    ./configure --with-subgrid=EAGLE --with-hydro=sphenix --with-kernel=wendland-C2 --enable-ipo --with-parmetis --with-tbbmalloc
+    make
 
 # Downloading data
 
 
     pushd examples/EAGLE_low_z/EAGLE_25
     ./getIC.sh
-    ../EAGLE_ICs/getEagleCoolingTable.sh
-    ../EAGLE_ICs/getEagleYieldTable.sh
+    ../../EAGLE_ICs/getEagleCoolingTable.sh
+    ../../EAGLE_ICs/getEagleYieldTable.sh
     popd
 
 
@@ -30,9 +31,6 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
     pushd examples/EAGLE_low_z/EAGLE_25
     ../../swift --eagle --cosmology --threads=<NUM_THREADS> -v 1 -n 2000 \
         -P Restarts:enable:0 \
-        -P Snapshots:scale_factor_first: 10000000000000.0 \
-        -P Snapshots:time_first:10000000000000.0 \
-        -P Snapshots:delta_time:10000000000000.0 \
         eagle_25.yml
     popd
 
