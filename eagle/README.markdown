@@ -53,9 +53,20 @@ We increase the number of threads cubically as the replicate parameter increases
 This is shown below:
 
 
+
     # Scale 1
+     pushd examples/EAGLE_low_z/EAGLE_25
+    ../../swift --eagle --cosmology --threads=28 -v 1 -n 2000 \
+        -P Scheduler:max_top_level_cells:8 \
+        -P Gravity:mesh_side_length:32 \
+        -P Restarts:enable:0 \
+        eagle_25.yml
+     popd
+
+
+    # Scale 2
     pushd examples/EAGLE_low_z/EAGLE_25
-    ../../swift --eagle --cosmology --threads=8 -v 1 -n 2000 \
+    mpirun -np 8 ../../swift_mpi --eagle --cosmology --threads=28 -v 1 -n 2000 \
         -P Scheduler:max_top_level_cells:16 \
         -P Gravity:mesh_side_length:64 \
         -P InitialConditions:replicate:2 \
@@ -63,9 +74,9 @@ This is shown below:
         eagle_25.yml
     popd
 
-    # Scale 2
+    # Scale 3
     pushd examples/EAGLE_low_z/EAGLE_25
-    ../../swift --eagle --cosmology --threads=27 -v 1 -n 2000 \
+    mpirun -np 27 ../../swift_mpi --eagle --cosmology --threads=28 -v 1 -n 2000 \
         -P Scheduler:max_top_level_cells:24 \
         -P Gravity:mesh_side_length:96 \
         -P InitialConditions:replicate:3 \
@@ -73,10 +84,9 @@ This is shown below:
         eagle_25.yml
     popd
 
-    # Scale 3
-    # May require MPI
+    # Scale 4
     pushd examples/EAGLE_low_z/EAGLE_25
-    ../../swift --eagle --cosmology --threads=64 -v 1 -n 2000 \
+    mpirun -np 64 ../../swift_mpi --eagle --cosmology --threads=28 -v 1 -n 2000 \
         -P Scheduler:max_top_level_cells:32 \
         -P Gravity:mesh_side_length:128 \
         -P InitialConditions:replicate:4 \
@@ -84,10 +94,10 @@ This is shown below:
         eagle_25.yml
     popd
 
-    # Scale 4
+    # Scale 5
     pushd examples/EAGLE_low_z/EAGLE_25
     # May require MPI
-    ../../swift --eagle --cosmology --threads=125 -v 1 -n 2000 \
+    mpirun -np 125 ../../swift_mpi --eagle --cosmology --threads=28 -v 1 -n 2000 \
         -P Scheduler:max_top_level_cells:40 \
         -P Gravity:mesh_side_length:160 \
         -P InitialConditions:replicate:5 \
