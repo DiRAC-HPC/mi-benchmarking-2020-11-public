@@ -47,7 +47,10 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
 
 
 # Weak scaling test
-Weak scaling can be tested by increasing the problem size with the number of threads as shown below:
+Weak scaling can be tested by increasing the problem size with the number of threads.
+We increase the number of threads cubically as the replicate parameter increases the problem size on all 3 axes.
+
+This is shown below:
 
 
     # Scale 1
