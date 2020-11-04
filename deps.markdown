@@ -16,3 +16,4 @@ We have had some success with:
  - GSL v2.x
  - FFTW v3.3.x (Threaded-version recommended, MPI-version not used)
  - Parmetis v4.0.3 (only for runs over MPI)
+ - libNUMA (only if home-made pinning of threads is used)
