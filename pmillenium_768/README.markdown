@@ -12,7 +12,7 @@ See [here](../deps.markdown)
     ./autogen.sh
     # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
     ./configure --enable-ipo --with-parmetis --with-tbbmalloc
-    make
+    make -j
 
 # Downloading Data
 Note that the input is 8.3GB in size.

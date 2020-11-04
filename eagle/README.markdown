@@ -12,7 +12,7 @@ See [here](../deps.markdown)
     ./autogen.sh
     # Can substitute --with-tbbmalloc with --with-tcmalloc or --with-jemalloc
     ./configure --with-subgrid=EAGLE --with-hydro=sphenix --with-kernel=wendland-C2 --enable-ipo --with-parmetis --with-tbbmalloc
-    make
+    make -j
 
 # Downloading Data
 Note that the input is 3.6GB in size.
@@ -46,7 +46,7 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
     mpirun -np <NUM_MPI_PROCESSES> ../../swift_mpi --eagle --cosmology --threads=<THREADS_PER_NODE> -v 1 -n 2000 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_lists.txt \
+        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
         eagle_25.yml
     popd
 
@@ -66,7 +66,7 @@ This is shown below:
         -P Gravity:mesh_side_length:32 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_lists.txt \
+        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
         eagle_25.yml
      popd
 
@@ -79,7 +79,7 @@ This is shown below:
         -P InitialConditions:replicate:2 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_lists.txt \
+        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
         eagle_25.yml
     popd
 
@@ -91,7 +91,7 @@ This is shown below:
         -P InitialConditions:replicate:3 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_lists.txt \
+        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
         eagle_25.yml
     popd
 
@@ -103,7 +103,7 @@ This is shown below:
         -P InitialConditions:replicate:4 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_lists.txt \
+        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
         eagle_25.yml
     popd
 
@@ -116,7 +116,7 @@ This is shown below:
         -P InitialConditions:replicate:5 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_lists.txt \
+        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
         eagle_25.yml
     popd
 
