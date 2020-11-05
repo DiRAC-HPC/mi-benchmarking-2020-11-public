@@ -22,6 +22,11 @@ Note that the input is 3.6GB in size.
     ./getIC.sh
     ../../EAGLE_ICs/getEagleCoolingTable.sh
     ../../EAGLE_ICs/getEagleYieldTable.sh
+    rm -f output_list.txt
+    echo "# Redshift" > output_list.txt
+    echo "0.05" >> output_list.txt
+    echo "0.03" >> output_list.txt
+    echo "0.0" >> output_list.txt
     popd
 
 
@@ -33,7 +38,7 @@ Strong scaling can be tested by increasing `NUM_THREADS` (`-n` sets the number o
     ../../swift --eagle --cosmology --threads=<NUM_THREADS> -v 1 -n 2000 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
+        -P Snapshots:output_list:./output_list.txt \
         eagle_25.yml
     popd
 
@@ -46,7 +51,7 @@ Strong scaling can be tested by increasing `NUM_MPI_PROCESSES` and `THREADS_PER_
     mpirun -np <NUM_MPI_PROCESSES> ../../swift_mpi --eagle --cosmology --threads=<THREADS_PER_NODE> -v 1 -n 2000 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
+        -P Snapshots:output_list:./output_list.txt \
         eagle_25.yml
     popd
 
@@ -67,7 +72,7 @@ This is shown below:
         -P Gravity:mesh_side_length:32 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
+        -P Snapshots:output_list:./output_list.txt \
         eagle_25.yml
      popd
 
@@ -80,7 +85,7 @@ This is shown below:
         -P InitialConditions:replicate:2 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
+        -P Snapshots:output_list:./output_list.txt \
         eagle_25.yml
     popd
 
@@ -92,7 +97,7 @@ This is shown below:
         -P InitialConditions:replicate:3 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
+        -P Snapshots:output_list:./output_list.txt \
         eagle_25.yml
     popd
 
@@ -104,7 +109,7 @@ This is shown below:
         -P InitialConditions:replicate:4 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
+        -P Snapshots:output_list:./output_list.txt \
         eagle_25.yml
     popd
 
@@ -117,7 +122,7 @@ This is shown below:
         -P InitialConditions:replicate:5 \
         -P Restarts:enable:0 \
         -P Snapshots:output_list_on:1 \
-        -P Snapshots:output_list:../../EAGLE_ICs/EAGLE_25/output_list.txt \
+        -P Snapshots:output_list:./output_list.txt \
         eagle_25.yml
     popd
 
