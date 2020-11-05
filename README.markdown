@@ -32,10 +32,10 @@ on the raw FP performance but tests the memory bandwidth, numa effects and scala
 
 Note that some of the tests above are large and require large input. The file sizes are:
 
- - EAGLE             - 3.6 GB 
- - PMillennium-768   - 8.3 GB
- - PMillennium-1536  - 163 GB
- - PMillennium-3072  - 1.3 TB
+ - EAGLE             - 3.6 GB (md5sum e6a5de0e962d8ffb7589671b9613daa0)
+ - PMillennium-768   - 8.3 GB (md5sum f20a8c446e24444df55daaea2163f233)
+ - PMillennium-1536  - 163 GB (md5sum bfaad140062f475c120002a76dd83f01)
+ - PMillennium-3072  - 1.3 TB (md5sum 59bd72f821e5f5a117a5c2ed23056f9e)
 
 Side tables of size < 100 MB are also required for the EAGLE run.
 
